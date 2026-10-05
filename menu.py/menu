@@ -1,0 +1,40 @@
+from tkinter import *
+
+# Створення головного вікна
+root = Tk()
+root.title("Трикутник з описаним колом")
+root.geometry("400x400")
+
+# Створення полотна Canvas
+c = Canvas(root, width=400, height=400, bg="white")
+c.pack()
+
+# Координати вершин трикутника
+x1, y1 = 200, 50
+x2, y2 = 80, 300
+x3, y3 = 320, 300
+
+# Малювання трикутника
+c.create_polygon(
+    x1, y1,
+    x2, y2,
+    x3, y3,
+    fill="lightblue",
+    outline="black",
+    width=3
+)
+
+# Центр описаного кола та його радіус
+cx, cy = 200, 183
+r = 150
+
+# Малювання описаного кола
+c.create_oval(
+    cx - r, cy - r,
+    cx + r, cy + r,
+    outline="red",
+    width=3
+)
+
+root.mainloop()
+
